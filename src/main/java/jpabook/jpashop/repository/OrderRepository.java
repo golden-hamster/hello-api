@@ -30,7 +30,7 @@ public class OrderRepository {
         List<Order> resultList = em.createQuery("select o from Order o join o.member m" +
                         "where o.status = :status " +
                         "and m.name like :name", Order.class)
-                .setParameter("status", orderSearch.getOrderstatus())
+                .setParameter("status", orderSearch.getOrderStatus())
                 .setParameter("name", orderSearch.getMemberName())
                 .setMaxResults(1000) // 최대 1000건
                 .getResultList();
@@ -44,9 +44,9 @@ public class OrderRepository {
         Join<Order, Member> m = o.join("member", JoinType.INNER); //회원과 조인
         List<Predicate> criteria = new ArrayList<>();
 //주문 상태 검색
-        if (orderSearch.getOrderstatus() != null) {
+        if (orderSearch.getOrderStatus() != null) {
             Predicate status = cb.equal(o.get("status"),
-                    orderSearch.getOrderstatus());
+                    orderSearch.getOrderStatus());
             criteria.add(status);
         }
 //회원 이름 검색
