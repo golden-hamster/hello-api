@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/jpashop;MVCC=TRUE
+    url: jdbc:h2:tcp://localhost/~/jpashop;
     username: sa
     password:
     driver-class-name: org.h2.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create # 실무에서는 create 를 주면 안된다. 데이터를 싹 날리고 다시 만들기 떄문에.
+      ddl-auto: none # 실무에서는 create 를 주면 안된다. 데이터를 싹 날리고 다시 만들기 떄문에.
     properties:
       hibernate:
 #        show_sql: true //sout 으로 찍는다. 쓰면 안됨
