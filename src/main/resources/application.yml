@@ -16,4 +16,4 @@ spring:
   logging:
     level:
       org.hibernate.SQL: debug #로그를 찍는 이걸 써야됨
-      org.hibernate.orm.jdbc.bind: trace
+#      org.hibernate.orm.jdbc.bind: trace

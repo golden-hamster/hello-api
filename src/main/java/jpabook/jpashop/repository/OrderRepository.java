@@ -3,7 +3,6 @@ package jpabook.jpashop.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.*;
-import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -128,4 +127,11 @@ public class OrderRepository {
     }
 
 
+    public List<OrderQuerySimpleDto> findOrdersDtos() {
+        return em.createQuery("select o from Order o" +
+                        " join o.member m" +
+                        " join o.delivery d", OrderQuerySimpleDto.class)
+                .getResultList();
+
+    }
 }
