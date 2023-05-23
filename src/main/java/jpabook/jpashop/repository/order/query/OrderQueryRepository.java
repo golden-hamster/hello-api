@@ -25,7 +25,7 @@ public class OrderQueryRepository {
 
     private List<OrderItemQueryDto> findOrderItems(Long orderId) {
         return em.createQuery(
-                        "select new jpaboook.jpashop.repository.order.query.OrderItemQueryDto(oi.order.id, i.name, oi.orderPrice, oi.count)" +
+                        "select new jpabook.jpashop.repository.order.query.OrderItemQueryDto(oi.order.id, i.name, oi.orderPrice, oi.count)" +
                                 " from OrderItem oi" +
                                 " join oi.item i" +
                                 " where oi.order.id = :orderId", OrderItemQueryDto.class)
