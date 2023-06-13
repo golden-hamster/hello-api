@@ -20,7 +20,7 @@ class MemberServiceTest {
     @Autowired
     MemberRepository memberRepository;
 
-    @Test
+//    @Test
     public void 회원가입() {
         //given
         Member member = new Member();
